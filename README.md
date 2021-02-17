@@ -1,14 +1,14 @@
-# Welcome to your CDK TypeScript project!
+# Large scale Agents for Scrapping and Processing URLS
 
-This is a blank project for TypeScript development with CDK.
+This project shows how you can scrapper URL documents through Agents at scale.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+It uses Chromium for web scrapping and connect each agent to DynamoDB for store.
+
+Agent Iterm is an example of Agent for documentation purposes
+Agent Emeral scrap Emeral Site for candidates data, index data in a ML System and push data to the Backend(https://recruiter-back.23people.io/)
 
 ## Useful commands
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+- `cdk deploy` deploy this stack to your default AWS account/region
+- `cdk diff` compare deployed stack with current state
+- `cdk synth` emits the synthesized CloudFormation template
