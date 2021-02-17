@@ -12,3 +12,23 @@ Agent Emeral scrap Emeral Site for candidates data, index data in an ML System a
 - `cdk deploy` deploy this stack to your default AWS account/region
 - `cdk diff` compare deployed stack with current state
 - `cdk synth` emits the synthesized CloudFormation template
+
+## Simple Doc
+
+### \_
+
+### 1. Add Agent's Files to the Project.
+
+![Test Image Project](doc/project.png)
+
+### \_
+
+### 2. Configure policy for an Agent.
+
+![Test Image Config](doc/config.png)
+
+### \_
+
+### 3. Main file for execution.
+
+![Test Image Config](doc/main.png)
