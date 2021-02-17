@@ -24,4 +24,23 @@ const downloadAndSendCV = async (downloadURL, uploadURL) => {
   return response.data;
 };
 
+const sendDataToBackend = async (backendURL, data) => {
+  let response = { data: {} };
+  try {
+    response = await axios({
+      method: "POST",
+      url: `${backendURL}/cv/import/emeral`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  return response.data;
+};
+
 exports.downloadAndSendCV = downloadAndSendCV;
+exports.sendDataToBackend = sendDataToBackend;

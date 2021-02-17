@@ -1,5 +1,4 @@
 const { transformDates } = require("./date");
-const { downloadAndSendCV } = require("./matcher.service");
 
 //------------------------------------------------------------------------------------------------
 // SELECTORS
@@ -105,7 +104,7 @@ const scrapApplications = (selector) =>
   });
 
 //------------------------------------------------------------------------------------------------
-const CV_MATCHER_URL = process.env.CV_MATCHER_URL;
+
 const scrapCandidatePage = async (page, href) => {
   await page.goto(href);
   await page.waitForSelector(datesSelector);
@@ -119,16 +118,17 @@ const scrapCandidatePage = async (page, href) => {
     return /.pdf\?\d+$/.test(pdfURL) ? pdfURL : "";
   }, cvSelector);
 
-  const mlResponse = await downloadAndSendCV(cvURL, CV_MATCHER_URL);
   const { createdAt, updatedAt } = transformDates(dates);
 
-  return {
-    ...profile,
-    cvMatcherId: mlResponse.id,
-    createdAt,
-    updatedAt,
-    applications,
-  };
+  return [
+    cvURL,
+    {
+      ...profile,
+      createdAt,
+      updatedAt,
+      applications,
+    },
+  ];
 };
 
 exports.scrapCandidateProfile = scrapCandidatePage;
