@@ -1,0 +1,13 @@
+{
+  "ruleExpression": "rate(144 minutes)",
+  "memory": 2048,
+  "duration": 900,
+  "cmd": ["emeral/index.handler"],
+  "environment": {
+    "USER_EMAIL": "hermes.herrera@23people.io",
+    "USER_PASS": "9LDpx-KH",
+    "EMERAL_LOGIN_URL": "https://www.emeral.cl/users/sign_in",
+    "EMERAL_CANDIDATES_PAGE": "https://www.emeral.cl/candidates?page={#}",
+    "CV_MATCHER_URL": "https://pxn3w7mwuf.execute-api.us-east-1.amazonaws.com/Prod"
+  }
+}

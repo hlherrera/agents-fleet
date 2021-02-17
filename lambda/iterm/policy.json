@@ -1,0 +1,9 @@
+{
+  "ruleExpression": "rate(144 hours)",
+  "memory": 10240,
+  "duration": 900,
+  "cmd": ["iterm/index.handler"],
+  "environment": {
+    "IT_TERMS_URL": "https://www.techopedia.com/it-terms"
+  }
+}

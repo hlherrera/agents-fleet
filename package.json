@@ -11,17 +11,28 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.88.0",
+    "@aws-cdk/assert": "1.89.0",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
-    "aws-cdk": "1.88.0",
+    "aws-cdk": "1.89.0",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.88.0",
+    "@aws-cdk/aws-dynamodb": "^1.89.0",
+    "@aws-cdk/aws-ecr": "^1.89.0",
+    "@aws-cdk/aws-ecr-assets": "^1.89.0",
+    "@aws-cdk/aws-events": "^1.89.0",
+    "@aws-cdk/aws-events-targets": "^1.89.0",
+    "@aws-cdk/aws-iam": "^1.89.0",
+    "@aws-cdk/aws-lambda": "^1.89.0",
+    "@aws-cdk/aws-stepfunctions": "^1.89.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "^1.89.0",
+    "@aws-cdk/core": "1.89.0",
+    "axios": "^0.21.1",
+    "camelcase": "^6.2.0",
     "source-map-support": "^0.5.16"
   }
 }
