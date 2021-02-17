@@ -19,7 +19,7 @@ Agent Emeral scrap Emeral Site for candidates data, index data in an ML System a
 
 ### 1. Add Agent's Files to the Project.
 
-![picture](doc/project.png)
+![picture](https://bitbucket.org/23people/viking-raiders-service/raw/80b8d74de9b451f7caa8ed3c106d795ff1b0a398/doc/project.png)
 
 ### \_
 
@@ -31,4 +31,4 @@ Agent Emeral scrap Emeral Site for candidates data, index data in an ML System a
 
 ### 3. Main file for execution.
 
-![picture](doc/main.png)
+![picture](https://bitbucket.org/23people/viking-raiders-service/raw/80b8d74de9b451f7caa8ed3c106d795ff1b0a398/doc/main.png)
