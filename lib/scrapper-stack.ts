@@ -6,7 +6,7 @@ import dynamodb = require("@aws-cdk/aws-dynamodb");
 
 import path = require("path");
 
-const ENV = "DEV";
+const ENV = process.env.NODE_ENV || "DEV";
 export class ScrapperStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
