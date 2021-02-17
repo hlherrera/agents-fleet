@@ -25,7 +25,7 @@ Agent Emeral scrap Emeral Site for candidates data, index data in an ML System a
 
 ### 2. Configure policy for an Agent.
 
-![picture](https://bitbucket.org/23people/viking-raiders-service/raw/29494e0b22727a6e3a42442038b506410b6dac71/doc/config.png)
+![picture](https://bitbucket.org/23people/viking-raiders-service/raw/2da716bb8d92a22c65fc205c716bd14be1f232d2/doc/config.png)
 
 ### \_
 
