@@ -1,7 +1,7 @@
 const { DynamoDB } = require("aws-sdk");
 const ddb = new DynamoDB.DocumentClient();
 
-const getPageNumber = async (TableName, id) => {
+const getAgentData = async (TableName, id) => {
   const data = await ddb
     .get({
       TableName,
@@ -13,30 +13,40 @@ const getPageNumber = async (TableName, id) => {
   return data;
 };
 
-const createPageNumber = async (TableName, id) => {
+const createData = async (TableName, id) => {
   const data = await ddb
     .put({
       TableName,
       Item: {
         agentId: id,
         pageNumber: 1,
+        lastPage: false,
+        lastCandidates: [],
       },
     })
     .promise();
   return data;
 };
 
-const setPageNumber = async (TableName, id, pageNumber, candidates) => {
+const setAgentData = async (
+  TableName,
+  id,
+  pageNumber,
+  lastPage,
+  lastCandidates
+) => {
   const data = await ddb
     .update({
       TableName,
       Key: {
         agentId: id,
       },
-      UpdateExpression: "set pageNumber = :p, candidates = :candidates",
+      UpdateExpression:
+        "set pageNumber = :p, lastPage = :lastPage, lastCandidates = :lastCandidates",
       ExpressionAttributeValues: {
         ":p": pageNumber,
-        ":candidates": candidates,
+        ":lastPage": lastPage,
+        ":lastCandidates": lastCandidates,
       },
       ReturnValues: "UPDATED_NEW",
     })
@@ -44,4 +54,4 @@ const setPageNumber = async (TableName, id, pageNumber, candidates) => {
   return data;
 };
 
-exports.db = { getPageNumber, setPageNumber, createPageNumber };
+exports.db = { getAgentData, setAgentData, createData };

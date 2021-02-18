@@ -1,7 +1,7 @@
 {
-  "ruleExpression": "rate(144 minutes)",
-  "memory": 2048,
-  "duration": 900,
+  "ruleExpression": "rate(7 days)",
+  "memory": 3004,
+  "duration": 300,
   "cmd": ["emeral/index.handler"],
   "environment": {
     "USER_EMAIL": "hermes.herrera@23people.io",

@@ -1,5 +1,5 @@
 const agent = require("../agent").agent;
-const { getPageNumber, setPageNumber, createPageNumber } = require("./db").db;
+const { getAgentData, setAgentData, createData } = require("./db").db;
 const { scrapLogin, scrapEmeral } = require("./emeral").scrapper;
 const { sendDataToBackend } = require("./matcher.service");
 
@@ -11,27 +11,46 @@ exports.handler = async (event, context, callback) => {
   let browser = null;
   let candidates = [];
   let pageNumber;
+  let lastPage;
+  let lastCandidates;
 
-  const item = await getPageNumber(TABLE_NAME, AGENT_ID);
+  const item = await getAgentData(TABLE_NAME, AGENT_ID);
   if (!item.Item) {
-    await createPageNumber(TABLE_NAME, AGENT_ID);
+    await createData(TABLE_NAME, AGENT_ID);
     pageNumber = 1;
+    lastPage = false;
+    lastCandidates = [];
   } else {
     pageNumber = item.Item.pageNumber;
+    lastPage = item.Item.lastPage;
+    lastCandidates = item.lastCandidates;
   }
 
   try {
     browser = await agent.launch();
     let page = await browser.newPage();
     await scrapLogin(page);
-    [candidates, pageNumber] = await scrapEmeral(page, pageNumber);
+    [candidates, pageNumber, lastPage] = await scrapEmeral(
+      page,
+      pageNumber,
+      lastCandidates
+    );
 
     // @todo
-    await sendDataToBackend(BACKEND_URL, candidates)
+    await sendDataToBackend(
+      BACKEND_URL,
+      candidates.map(({ isLast, ...rest }) => rest)
+    )
       .catch((err) => console.error(err))
       .then((r) => console.log("- BACKEND RESPONSE: ", r));
 
-    await setPageNumber(TABLE_NAME, AGENT_ID, pageNumber, candidates);
+    await setAgentData(
+      TABLE_NAME,
+      AGENT_ID,
+      pageNumber,
+      lastPage,
+      candidates.filter(({ isLast }) => isLast)
+    );
     await page.close();
   } catch (error) {
     return callback(error);

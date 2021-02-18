@@ -1,8 +1,9 @@
 const axios = require("axios");
 
-const downloadAndSendCV = async (downloadURL, uploadURL) => {
+const downloadAndSendCV = async (downloadURL, uploadURL, candidate) => {
   let response = { data: {} };
   if (downloadURL && downloadURL.length > 0) {
+    const pathURL = candidate ? `/${candidate.cvMatcherId}` : "";
     try {
       response = await axios({
         method: "GET",
@@ -11,7 +12,7 @@ const downloadAndSendCV = async (downloadURL, uploadURL) => {
       });
       response = await axios({
         method: "PUT",
-        url: `${uploadURL}/documents`,
+        url: `${uploadURL}/documents${pathURL}`,
         headers: {
           "Content-Type": "application/pdf",
         },
