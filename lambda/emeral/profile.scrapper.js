@@ -73,6 +73,7 @@ const scrapProfile = (selector) => {
   });
 };
 //------------------------------------------------------------------------------------------------
+
 const scrapApplications = (selector) =>
   Array.from(document.querySelectorAll(selector)).map((c) => {
     const [, emeralPositionId] = (
@@ -102,7 +103,12 @@ const scrapApplications = (selector) =>
       updatedAt: new Date(+yyyy, +mm, +dd).getTime(),
     };
   });
+//------------------------------------------------------------------------------------------------
 
+const scrapDocumentCV = (selector) => {
+  const pdfURL = (document.querySelector(selector) || {}).href;
+  return /.pdf\?\d+$/.test(pdfURL) ? pdfURL : "";
+};
 //------------------------------------------------------------------------------------------------
 
 const scrapCandidatePage = async (page, href) => {
@@ -112,11 +118,7 @@ const scrapCandidatePage = async (page, href) => {
   const [dates] = await page.evaluate(scrapDates, datesSelector);
   const [profile] = await page.evaluate(scrapProfile, profileSelector);
   const applications = await page.evaluate(scrapApplications, positionSelector);
-
-  const cvURL = await page.evaluate((selector) => {
-    const pdfURL = (document.querySelector(selector) || {}).href;
-    return /.pdf\?\d+$/.test(pdfURL) ? pdfURL : "";
-  }, cvSelector);
+  const cvURL = await page.evaluate(scrapDocumentCV, cvSelector);
 
   const { createdAt, updatedAt } = transformDates(dates);
 
