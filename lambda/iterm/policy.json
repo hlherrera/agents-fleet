@@ -1,6 +1,6 @@
 {
   "ruleExpression": "rate(144 hours)",
-  "memory": 10240,
+  "memory": 1024,
   "duration": 900,
   "cmd": ["iterm/index.handler"],
   "environment": {
