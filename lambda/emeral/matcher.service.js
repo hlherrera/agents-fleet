@@ -30,7 +30,7 @@ const sendDataToBackend = async (backendURL, data) => {
   try {
     response = await axios({
       method: "POST",
-      url: `${backendURL}/cv/import/emeral`,
+      url: backendURL,
       headers: {
         "Content-Type": "application/json",
       },
