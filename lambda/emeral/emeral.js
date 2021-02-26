@@ -7,7 +7,7 @@ const ITEMS_PER_PAGE = 25;
 const PAGES_TO_ANALYZE = 4;
 const CV_MATCHER_URL = process.env.CV_MATCHER_URL;
 
-const scrapEmeral = async (page, start, lastCandidates) => {
+const scrapEmeral = async (page, start, lastCandidates = []) => {
   let pageNumber = start;
   let results = [];
   let candidates = [];

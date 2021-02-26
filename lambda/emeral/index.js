@@ -12,7 +12,7 @@ exports.handler = async (event, context, callback) => {
   let candidates = [];
   let pageNumber;
   let lastPage;
-  let lastCandidates;
+  let lastCandidates = [];
 
   const item = await getAgentData(TABLE_NAME, AGENT_ID);
   if (!item.Item) {
