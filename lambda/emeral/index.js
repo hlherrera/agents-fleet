@@ -5,7 +5,7 @@ const { sendDataToBackend } = require("./matcher.service");
 
 const TABLE_NAME = process.env.DB_TABLE_NAME;
 const AGENT_ID = process.env.ID;
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = process.env.BACKEND_ENDPOINT_URL;
 
 exports.handler = async (event, context, callback) => {
   let browser = null;

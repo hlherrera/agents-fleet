@@ -9,6 +9,7 @@
     "EMERAL_LOGIN_URL": "https://www.emeral.cl/users/sign_in",
     "EMERAL_CANDIDATES_PAGE": "https://www.emeral.cl/candidates?page={#}",
     "CV_MATCHER_URL": "https://rp2awgjixf.execute-api.us-east-1.amazonaws.com/Prod",
-    "BACKEND_URL": "https://recruiter-back.23people.io"
+    "BACKEND_URL": "https://recruiter-back.23people.io",
+    "BACKEND_ENDPOINT_URL": "https://recruiter-back.23people.io/people/import/emeral"
   }
 }
