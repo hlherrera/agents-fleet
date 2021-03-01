@@ -1,5 +1,5 @@
 {
-  "ruleExpression": "rate(7 days)",
+  "ruleExpression": "rate(1 minute)",
   "memory": 3004,
   "duration": 300,
   "cmd": ["emeral/index.handler"],
