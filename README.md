@@ -19,16 +19,16 @@ Agent Emeral scrap Emeral Site for candidates data, index data in an ML System a
 
 ### 1. Add Agent's Files to the Project.
 
-![picture](https://bitbucket.org/23people/viking-raiders-service/raw/80b8d74de9b451f7caa8ed3c106d795ff1b0a398/doc/project.png)
+![picture](https://github.com/hlherrera/agents-fleet/blob/main/doc/project.png)
 
 ### \_
 
 ### 2. Configure policy for an Agent.
 
-![picture](https://bitbucket.org/23people/viking-raiders-service/raw/2da716bb8d92a22c65fc205c716bd14be1f232d2/doc/config.png)
+![picture](https://github.com/hlherrera/agents-fleet/blob/main/doc/config.png)
 
 ### \_
 
 ### 3. Main file for execution.
 
-![picture](https://bitbucket.org/23people/viking-raiders-service/raw/80b8d74de9b451f7caa8ed3c106d795ff1b0a398/doc/main.png)
+![picture](https://github.com/hlherrera/agents-fleet/blob/main/doc/main.png)
